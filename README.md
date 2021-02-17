@@ -25,4 +25,28 @@ total 0
 ---------- 1 root root 0 Feb 17 21:08 zeroes
 ```
 5. Now stop the gitpod workspace and then start it again.
-6. `docker run -it --rm randyfay/gitpod-bug-repro` now shows completely different permissions and ownership:
+6. `sudo docker-up`
+7. `docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp` now shows completely different permissions and ownership:
+```bash
+$ docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+/var/tmp:
+total 8
+drwxr-xr-x 2 www-data root 4096 Feb 17 21:16 dir-with-perms
+drwxr-xr-x 2 root     root 4096 Feb 17 21:16 filebits
+
+/var/tmp/dir-with-perms:
+total 0
+
+/var/tmp/filebits:
+total 0
+-rwxr-xr-x 1 root root 0 Feb 17 21:16 setuid
+---------- 1 root root 0 Feb 17 21:16 zeroes
+```
+
+You'll note that 
+* /var/tmp/dir-with-perms was 777, now it's 755
+* /var/tmp/filebits/setuid has lost its setuid bit
+
+Interestingly though, /var/tmp/filebits/zeroes still has its 000 perms. 
+
+There may be other instances of permissions loss. It's not clear to me why the directory permissions are mucked with, but the some file perms don't seem to be.
