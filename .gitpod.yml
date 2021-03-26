@@ -1,0 +1,46 @@
+image:
+  file: .gitpod.Dockerfile
+
+# ddev and composer are running as part of the prebuild
+# when workspace gets loaded all docker images are ready
+tasks:
+  - init: sudo docker-up &
+  - init: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+  - command: sudo docker-up
+  - command: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+
+# Set the following ports public
+ports:
+  - port: 6942
+    onOpen: ignore
+  - port: 8080
+  - port: 8025
+    onOpen: ignore
+  - port: 8026
+    onOpen: ignore
+  - port: 8036
+    onOpen: ignore
+  - port: 8037
+    onOpen: ignore
+  - port: 8443
+    onOpen: ignore
+  - port: 9999
+
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+    # add a check to pull requests (defaults to true)
+    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: true
+    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    addBadge: true
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: true
