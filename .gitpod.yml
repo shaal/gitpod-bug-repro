@@ -4,8 +4,8 @@ image:
 # ddev and composer are running as part of the prebuild
 # when workspace gets loaded all docker images are ready
 tasks:
-  - init: sudo docker-up &
-  - init: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+  - prebuild: sudo docker-up &
+  - prebuild: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
   - command: sudo docker-up
   - command: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
 
