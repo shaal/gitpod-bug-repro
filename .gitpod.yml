@@ -5,9 +5,19 @@ image:
 # when workspace gets loaded all docker images are ready
 tasks:
   - prebuild: sudo docker-up &
-  - prebuild: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+  - prebuild: |
+      # Wait for docker to come up before doing gitpod setup (gitpod-setup requires docker)
+      while ! docker ps 2>/dev/null; do
+        sleep 1
+      done
+      docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
   - command: sudo docker-up
-  - command: docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+  - command: |
+      # Wait for docker to come up before doing gitpod setup (gitpod-setup requires docker)
+      while ! docker ps 2>/dev/null; do
+        sleep 1
+      done
+      docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
 
 # Set the following ports public
 ports:
