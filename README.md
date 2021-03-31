@@ -1,5 +1,5 @@
 # upcoming-gitpod-docker-pull-bug-repro
-This is a demonstration branch for reproducing https://github.com/gitpod-io/gitpod/issues/3174
+This is a demonstration branch for reproducing https://github.com/gitpod-io/gitpod/issues/3671
 
 To demonstrate the bug, 
 Run this repo in Gitpod with prebuild option. Compare existing gitpod.io and the upcoming Gitpod
