@@ -11,7 +11,7 @@ tasks:
         sleep 1
       done
       docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
-      docker docker pull busybox
+      docker pull busybox
       docker images
 #   - command: sudo docker-up
 #   - command: |
