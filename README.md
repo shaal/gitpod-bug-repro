@@ -1,4 +1,4 @@
-# gitpod-bug-repro
+# upcoming-gitpod-docker-pull-bug-repro
 This is a demonstration branch for reproducing https://github.com/gitpod-io/gitpod/issues/3174
 
 To demonstrate the bug, 
