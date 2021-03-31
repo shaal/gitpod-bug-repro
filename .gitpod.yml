@@ -11,12 +11,6 @@ tasks:
         sleep 1
       done
       docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
-  - command: sudo docker-up
-  - command: |
-      while ! docker ps 2>/dev/null; do
-        sleep 1
-      done
-      docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
 
 # Set the following ports public
 ports:
