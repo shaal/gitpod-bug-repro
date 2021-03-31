@@ -11,6 +11,8 @@ tasks:
         sleep 1
       done
       docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
+      docker pull busybox
+      docker images
 #   - command: sudo docker-up
 #   - command: |
 #       # Wait for docker to come up before doing gitpod setup (gitpod-setup requires docker)
