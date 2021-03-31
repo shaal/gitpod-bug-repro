@@ -10,6 +10,8 @@ tasks:
       while ! docker ps 2>/dev/null; do
         sleep 1
       done
+      ddev config global --instrumentation-opt-in=true --router-bind-all-interfaces=true
+      ddev start
       docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
 
 # Set the following ports public
