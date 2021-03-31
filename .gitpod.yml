@@ -11,5 +11,6 @@ tasks:
         sleep 1
       done
       docker pull alpine:3.13.3
-      docker pull hello-world
+      docker run hello-world
       docker images
+      docker images > file-created-during-prebuild.txt
