@@ -12,5 +12,9 @@ tasks:
       done
       docker pull alpine:3.13.3
       docker run hello-world
+      docker pull drud/ddev-webserver:v1.16.7
+      docker pull drud/ddev-dbserver-mariadb-10.3:v1.16.0
+      docker pull drud/ddev-ssh-agent:v1.16.0
+      docker pull drud/ddev-router:v1.16.2
       docker images
       docker images > file-created-during-prebuild.txt
