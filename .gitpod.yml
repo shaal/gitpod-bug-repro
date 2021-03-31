@@ -15,10 +15,11 @@ tasks:
       # docker pull drud/ddev-ssh-agent:v1.16.0
       # docker pull drud/ddev-router:v1.16.2
       # docker pull wordpress:php7.4
+      # docker pull hello-world
       docker pull alpine:3.13.3
-      docker pull hello-world
+      docker run hello-world
       docker images
-      docker images > hello.txt
+      docker images > file-created-during-prebuild.txt
 #   - command: sudo docker-up
 #   - command: |
 #       # Wait for docker to come up before doing gitpod setup (gitpod-setup requires docker)
