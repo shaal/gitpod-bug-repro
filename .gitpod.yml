@@ -12,5 +12,6 @@ tasks:
       done
       docker pull alpine:3.13.3
       docker run hello-world
+      docker pull wordpress
       docker images
       docker images > file-created-during-prebuild.txt
