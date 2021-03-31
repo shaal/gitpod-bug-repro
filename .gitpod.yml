@@ -10,12 +10,10 @@ tasks:
       while ! docker ps 2>/dev/null; do
         sleep 1
       done
-      docker run -it --rm randyfay/gitpod-bug-repro ls -lR /var/tmp
-      docker pull busybox
       docker pull drud/ddev-webserver:v1.16.7
-      docker pull drud/ddev-dbserver-mariadb-10.3:v1.16.0
-      docker pull drud/ddev-ssh-agent:v1.16.0
-      docker pull drud/ddev-router:v1.16.2
+      # docker pull drud/ddev-dbserver-mariadb-10.3:v1.16.0
+      # docker pull drud/ddev-ssh-agent:v1.16.0
+      # docker pull drud/ddev-router:v1.16.2
       docker images
 #   - command: sudo docker-up
 #   - command: |
